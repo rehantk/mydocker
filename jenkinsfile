@@ -1,9 +1,19 @@
 pipeline {
   agent any
   stages{
-     stage("test"){
+     stage("Git Checkout"){
         steps{
-          sh 'echo "hello world"'
+          sh 'echo "Successfully checkedout"'
+        }
+     }
+     stage("Clean"){
+        steps{
+          sh 'mvn clean'
+        }
+     }
+     stage("Build"){
+        steps{
+          sh 'mvn package'
         }
      }
   }
